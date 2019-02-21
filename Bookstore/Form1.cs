@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bookstore.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,7 @@ namespace Bookstore
         public Form1()
         {
             InitializeComponent();
+            Globals.BookStore.EmployeeList.initializeEntireList();
         }
 
         private void btnFindMe_Click(object sender, EventArgs e)

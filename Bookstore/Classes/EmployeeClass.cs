@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Bookstore.Classes
 {
-    class CurrentFile
+    class EmployeeClass
     {
+        public bool createEmployeeObject(string nextRecord)
+        {
+            return false;
+        }
     }
 }

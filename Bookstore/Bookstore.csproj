@@ -46,10 +46,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\CurrentFile.cs" />
-    <Compile Include="Classes\Employee.cs" />
-    <Compile Include="Classes\EmployeeList.cs" />
-    <Compile Include="Classes\UpdatedFile.cs" />
+    <Compile Include="Classes\BookClass.cs" />
+    <Compile Include="Classes\BookstoreClass.cs" />
+    <Compile Include="Classes\CurrentFileClass.cs" />
+    <Compile Include="Classes\EmployeeClass.cs" />
+    <Compile Include="Classes\EmployeeListClass.cs" />
+    <Compile Include="Classes\Globals.cs" />
+    <Compile Include="Classes\UpdatedFileClass.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +103,8 @@
   <ItemGroup>
     <Content Include="bin\Debug\Bookstore.exe" />
     <Content Include="bin\Debug\Bookstore.pdb" />
+    <Content Include="currentBookFile.txt" />
+    <Content Include="currentEmployeeFile.txt" />
     <Content Include="obj\Debug\Bookstore.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\Bookstore.exe" />
     <Content Include="obj\Debug\Bookstore.pdb" />
