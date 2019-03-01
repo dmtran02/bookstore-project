@@ -21,12 +21,13 @@ namespace Bookstore.Classes
 
         public bool findEmployeeInList(int ID)
         {
+            bool success = false;
             return false;
         }
 
         public void displayEntireList()
         {
-
+            
         }
 
         // Initialize entire employee list given data in current Book File 
@@ -53,6 +54,7 @@ namespace Bookstore.Classes
                 InternalList.Add(emp);
                 nextRecord = BookStoreClass.currentEmployeeFile.getNextRecord(ref isEndOfFile);
             } //end While
+            displayEntireList();
 
             if (countProcessedRecords > 0)
                 return true;

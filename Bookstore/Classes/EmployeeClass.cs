@@ -8,9 +8,16 @@ namespace Bookstore.Classes
 {
     class EmployeeClass
     {
+        private string accessID;
+        private string name;
+        private string pin;
+        private string salary;
+        private string lastAccessDate;
+
         public bool createEmployeeObject(string nextRecord)
         {
-            return false;
+            //Console.WriteLine(nextRecord);
+            return true;
         }
     }
 }

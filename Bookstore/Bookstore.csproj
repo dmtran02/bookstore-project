@@ -103,11 +103,17 @@
   <ItemGroup>
     <Content Include="bin\Debug\Bookstore.exe" />
     <Content Include="bin\Debug\Bookstore.pdb" />
+    <Content Include="bin\Debug\currentBookFile.txt" />
+    <Content Include="bin\Debug\currentEmployeeFile.txt" />
+    <Content Include="bin\Debug\updatedBookFile.txt" />
+    <Content Include="bin\Debug\updatedEmployeeFile.txt" />
     <Content Include="currentBookFile.txt" />
     <Content Include="currentEmployeeFile.txt" />
     <Content Include="obj\Debug\Bookstore.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\Bookstore.exe" />
     <Content Include="obj\Debug\Bookstore.pdb" />
+    <Content Include="updatedBookFile.txt" />
+    <Content Include="updatedEmployeeFile.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
