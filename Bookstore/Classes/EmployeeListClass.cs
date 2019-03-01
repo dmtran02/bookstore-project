@@ -27,7 +27,7 @@ namespace Bookstore.Classes
 
         public void displayEntireList()
         {
-            
+            Console.WriteLine(InternalList[1]);
         }
 
         // Initialize entire employee list given data in current Book File 
