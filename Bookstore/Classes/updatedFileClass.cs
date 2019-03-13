@@ -1,4 +1,12 @@
-﻿using System;
+﻿// Updated File Class  
+// Data stores and methods related to a current (input) text file processed by the project
+
+// Frank Friedman
+// CIS 3309
+
+// Adapted from VB Version 1 - Feb 6 2010 by FLF July 18, 2013
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,7 +15,7 @@ using System.Windows.Forms;
 
 namespace Bookstore.Classes
 {
-    class UpdatedFileClass
+    public class UpdatedFileClass
     {
         private string updatedFilePath;
         private System.IO.StreamWriter updatedFileSW;  // Reference variable of type SW
@@ -45,11 +53,12 @@ namespace Bookstore.Classes
             catch (Exception ex)
             {
                 MessageBox.Show("IO error in file write. Terminate program.",
-                                "File Write Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                                "File Write Error",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
             // end Try
             recordWrittenCount += 1;
-        } // end putNextRecord
+        } // end puNextRecord
 
 
 
@@ -79,6 +88,5 @@ namespace Bookstore.Classes
             updatedFileSW.BaseStream.Seek(0, System.IO.SeekOrigin.Begin);
         } // end rewindFile
 
-    } // end UpdatedFile Class
-} // end namespace
-
+    } // end Class
+}

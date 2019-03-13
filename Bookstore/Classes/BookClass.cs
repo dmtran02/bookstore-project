@@ -13,7 +13,7 @@ namespace Bookstore.Classes
         }
 
         public bool bookMatch(string ISBN, string nextRecord)
-        {
+        { 
             return false;
         }
     }

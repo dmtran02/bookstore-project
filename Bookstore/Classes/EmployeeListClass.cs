@@ -21,22 +21,42 @@ namespace Bookstore.Classes
 
         public bool findEmployeeInList(int ID)
         {
-            bool success = false;
+            Boolean success = false;
+            while(success == false && index < InternalList.Count)
+            {
+                if(InternalList[index].checkEmployeeID(ID) == true)
+                {
+                    success = true;
+                    return true;
+                }
+                else
+                {
+                    index++;
+                }
+            }
+            index = 0;
             return false;
         }
 
         public void displayEntireList()
         {
-            Console.WriteLine(InternalList[1]);
-        }
+            foreach (EmployeeClass emp in InternalList)
+            {
+                string s = emp.createStringToWrite();
+                BookStoreClass.updatedEmployeeFile.putNextRecord(s);
 
-        // Initialize entire employee list given data in current Book File 
-        public Boolean initializeEntireList()
+            }  // end foreach
+            return;
+        }  // end displayEntireList
+
+    // Initialize entire employee list given data in current Book File 
+    public Boolean initializeEntireList()
         {
             string nextRecord;
             Boolean isEndOfFile = true;
             Boolean success;
             int countProcessedRecords = 0;
+            // int recordIndex = 0;
 
             nextRecord = BookStoreClass.currentEmployeeFile.getNextRecord(ref isEndOfFile);
             while (!isEndOfFile)
@@ -51,6 +71,7 @@ namespace Bookstore.Classes
                         "Employee List Creation Failed", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                     return false;
                 }
+
                 InternalList.Add(emp);
                 nextRecord = BookStoreClass.currentEmployeeFile.getNextRecord(ref isEndOfFile);
             } //end While
@@ -61,5 +82,17 @@ namespace Bookstore.Classes
             else
                 return false;
         }  // end initializeEntireList
+
+        public Boolean verifyPin(int pin)
+        {
+            if (InternalList[index].verifyPIN(pin) == true)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

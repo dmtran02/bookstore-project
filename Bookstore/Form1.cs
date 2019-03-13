@@ -46,15 +46,19 @@ namespace Bookstore
                 }
                 else
                 {
-                    int accessID = Convert.ToInt32(txtAccessIDEntry.Text);
-                    Console.WriteLine(accessID);
+                    int accessID = int.Parse(txtAccessIDEntry.Text);
+                    //Console.WriteLine(accessID);
                     if(Globals.BookStore.findEmployee(accessID))
                     {
                         MessageBox.Show("Employee ID has been found!", "You have been found!");
+                        this.Hide();
+                        PinID PINForm = new PinID();
+                        PINForm.Show();
                     }
                     else
                     {
                         MessageBox.Show("Failure...", "We didn't find you in our system...");
+                        tryCount++;
                     }
                 }
             }
@@ -74,7 +78,6 @@ namespace Bookstore
                 MessageBox.Show("You have reached the max attempts... Force Exitting now...", "Intrusion Detected");
                 this.Close();
             }
-            
         }
     }
 }
