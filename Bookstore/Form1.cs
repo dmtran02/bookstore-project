@@ -19,6 +19,8 @@ namespace Bookstore
         {
             InitializeComponent();
             Globals.BookStore.EmployeeList.initializeEntireList();
+            this.ActiveControl = txtAccessIDEntry;
+            this.Height = 550;
         }
 
         private void btnFindMe_Click(object sender, EventArgs e)
@@ -42,6 +44,7 @@ namespace Bookstore
                 {
                     MessageBox.Show("Please enter a valid Access ID!", "Invalid Access ID Detected");
                     tryCount++;
+                    txtAccessIDEntry.Text = "";
                     txtAccessIDEntry.Focus();
                 }
                 else
@@ -54,6 +57,7 @@ namespace Bookstore
                         this.Hide();
                         PinID PINForm = new PinID();
                         PINForm.Show();
+                        tryCount = 0;
                     }
                     else
                     {
@@ -78,6 +82,11 @@ namespace Bookstore
                 MessageBox.Show("You have reached the max attempts... Force Exitting now...", "Intrusion Detected");
                 this.Close();
             }
+        }
+
+        private void FormClose(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

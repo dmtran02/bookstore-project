@@ -150,7 +150,6 @@ namespace Bookstore.Classes
         } //end findAndSaveBook
 
 
-
         // Check for duplicate record during an add operation
         // Returns: true if there is a match (meaning this ISBN is in use).  Otherwise returns false.
         public Boolean checkForDuplicateRecord

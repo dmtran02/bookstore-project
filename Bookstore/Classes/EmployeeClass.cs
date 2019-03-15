@@ -238,9 +238,11 @@ namespace Bookstore.Classes
             string decimalAsString = String.Format("{0:c}", hiddenAnnualPay);
             string s = hiddenAccessID.ToString() + " * " + hiddenName + " * " + hiddenPIN.ToString()
                        + " * " + decimalAsString + " * " + hiddenLastDateOfAccess.ToString();
+            /*
             MessageBox.Show(hiddenAccessID.ToString() + "\r\n" + hiddenName + "\r\n" + hiddenPIN.ToString() +
                             "\r\n" + decimalAsString + "\r\n" + hiddenLastDateOfAccess.ToString(),
                             "String Written to Updated Employee File", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                            */
             return s;
         }  // end createStringToWrite
 

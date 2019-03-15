@@ -18,6 +18,7 @@ namespace Bookstore.Classes
         public PinID()
         {
             InitializeComponent();
+            this.ActiveControl = txtPINEntry;
         }
 
         private void btn_Click(object sender, EventArgs e)
@@ -32,12 +33,22 @@ namespace Bookstore.Classes
             else
             {
                 tryCount++;
+                txtPINEntry.Text = "";
+                txtPINEntry.Focus();
                 if (tryCount == Globals.BookStore.tryCountMax)
                 {
                     MessageBox.Show("Max attempts reached. Force exitting now...", "Intrusion Alert!");
                     this.Close();
                 }
             }
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            tryCount = 0;
+            this.Close();
+            Form1 mainForm = new Form1();
+            mainForm.Show();
         }
     }
 }
