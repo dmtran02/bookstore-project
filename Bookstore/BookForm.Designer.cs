@@ -51,6 +51,12 @@
             this.txtTransDate = new System.Windows.Forms.TextBox();
             this.btnDone = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
+            this.btnAddTransConfirm = new System.Windows.Forms.Button();
+            this.btnAddTransCancel = new System.Windows.Forms.Button();
+            this.btnUpdateTransConfirm = new System.Windows.Forms.Button();
+            this.btnDeleteTransConfirm = new System.Windows.Forms.Button();
+            this.btnUpdateTransCancel = new System.Windows.Forms.Button();
+            this.btnDeleteTransCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblISBNEntry
@@ -84,7 +90,7 @@
             // lblDash
             // 
             this.lblDash.AutoSize = true;
-            this.lblDash.Location = new System.Drawing.Point(589, 54);
+            this.lblDash.Location = new System.Drawing.Point(589, 57);
             this.lblDash.Name = "lblDash";
             this.lblDash.Size = new System.Drawing.Size(19, 25);
             this.lblDash.TabIndex = 3;
@@ -92,7 +98,7 @@
             // 
             // txtISBNEntry2
             // 
-            this.txtISBNEntry2.Location = new System.Drawing.Point(614, 54);
+            this.txtISBNEntry2.Location = new System.Drawing.Point(614, 53);
             this.txtISBNEntry2.Name = "txtISBNEntry2";
             this.txtISBNEntry2.Size = new System.Drawing.Size(100, 31);
             this.txtISBNEntry2.TabIndex = 4;
@@ -270,11 +276,89 @@
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // btnAddTransConfirm
+            // 
+            this.btnAddTransConfirm.BackColor = System.Drawing.Color.Lime;
+            this.btnAddTransConfirm.Location = new System.Drawing.Point(681, 181);
+            this.btnAddTransConfirm.Name = "btnAddTransConfirm";
+            this.btnAddTransConfirm.Size = new System.Drawing.Size(113, 48);
+            this.btnAddTransConfirm.TabIndex = 23;
+            this.btnAddTransConfirm.Text = "Confirm";
+            this.btnAddTransConfirm.UseVisualStyleBackColor = false;
+            this.btnAddTransConfirm.Visible = false;
+            this.btnAddTransConfirm.Click += new System.EventHandler(this.btnAddTransConfirm_Click);
+            // 
+            // btnAddTransCancel
+            // 
+            this.btnAddTransCancel.BackColor = System.Drawing.Color.Red;
+            this.btnAddTransCancel.Location = new System.Drawing.Point(800, 181);
+            this.btnAddTransCancel.Name = "btnAddTransCancel";
+            this.btnAddTransCancel.Size = new System.Drawing.Size(113, 48);
+            this.btnAddTransCancel.TabIndex = 24;
+            this.btnAddTransCancel.Text = "Cancel";
+            this.btnAddTransCancel.UseVisualStyleBackColor = false;
+            this.btnAddTransCancel.Visible = false;
+            this.btnAddTransCancel.Click += new System.EventHandler(this.btnAddTransCancel_Click);
+            // 
+            // btnUpdateTransConfirm
+            // 
+            this.btnUpdateTransConfirm.BackColor = System.Drawing.Color.Lime;
+            this.btnUpdateTransConfirm.Location = new System.Drawing.Point(681, 242);
+            this.btnUpdateTransConfirm.Name = "btnUpdateTransConfirm";
+            this.btnUpdateTransConfirm.Size = new System.Drawing.Size(113, 48);
+            this.btnUpdateTransConfirm.TabIndex = 25;
+            this.btnUpdateTransConfirm.Text = "Confirm";
+            this.btnUpdateTransConfirm.UseVisualStyleBackColor = false;
+            this.btnUpdateTransConfirm.Visible = false;
+            this.btnUpdateTransConfirm.Click += new System.EventHandler(this.btnUpdateTransConfirm_Click);
+            // 
+            // btnDeleteTransConfirm
+            // 
+            this.btnDeleteTransConfirm.BackColor = System.Drawing.Color.Lime;
+            this.btnDeleteTransConfirm.Location = new System.Drawing.Point(681, 307);
+            this.btnDeleteTransConfirm.Name = "btnDeleteTransConfirm";
+            this.btnDeleteTransConfirm.Size = new System.Drawing.Size(113, 48);
+            this.btnDeleteTransConfirm.TabIndex = 26;
+            this.btnDeleteTransConfirm.Text = "Confirm";
+            this.btnDeleteTransConfirm.UseVisualStyleBackColor = false;
+            this.btnDeleteTransConfirm.Visible = false;
+            this.btnDeleteTransConfirm.Click += new System.EventHandler(this.btnDeleteTransConfirm_Click);
+            // 
+            // btnUpdateTransCancel
+            // 
+            this.btnUpdateTransCancel.BackColor = System.Drawing.Color.Red;
+            this.btnUpdateTransCancel.Location = new System.Drawing.Point(800, 242);
+            this.btnUpdateTransCancel.Name = "btnUpdateTransCancel";
+            this.btnUpdateTransCancel.Size = new System.Drawing.Size(113, 48);
+            this.btnUpdateTransCancel.TabIndex = 27;
+            this.btnUpdateTransCancel.Text = "Cancel";
+            this.btnUpdateTransCancel.UseVisualStyleBackColor = false;
+            this.btnUpdateTransCancel.Visible = false;
+            this.btnUpdateTransCancel.Click += new System.EventHandler(this.btnUpdateTransCancel_Click);
+            // 
+            // btnDeleteTransCancel
+            // 
+            this.btnDeleteTransCancel.BackColor = System.Drawing.Color.Red;
+            this.btnDeleteTransCancel.Location = new System.Drawing.Point(800, 307);
+            this.btnDeleteTransCancel.Name = "btnDeleteTransCancel";
+            this.btnDeleteTransCancel.Size = new System.Drawing.Size(113, 48);
+            this.btnDeleteTransCancel.TabIndex = 28;
+            this.btnDeleteTransCancel.Text = "Cancel";
+            this.btnDeleteTransCancel.UseVisualStyleBackColor = false;
+            this.btnDeleteTransCancel.Visible = false;
+            this.btnDeleteTransCancel.Click += new System.EventHandler(this.btnDeleteTransCancel_Click);
+            // 
             // BookForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1057, 688);
+            this.Controls.Add(this.btnDeleteTransCancel);
+            this.Controls.Add(this.btnUpdateTransCancel);
+            this.Controls.Add(this.btnDeleteTransConfirm);
+            this.Controls.Add(this.btnUpdateTransConfirm);
+            this.Controls.Add(this.btnAddTransCancel);
+            this.Controls.Add(this.btnAddTransConfirm);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnDone);
             this.Controls.Add(this.txtTransDate);
@@ -331,5 +415,11 @@
         private System.Windows.Forms.TextBox txtTransDate;
         private System.Windows.Forms.Button btnDone;
         private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Button btnAddTransConfirm;
+        private System.Windows.Forms.Button btnAddTransCancel;
+        private System.Windows.Forms.Button btnUpdateTransConfirm;
+        private System.Windows.Forms.Button btnDeleteTransConfirm;
+        private System.Windows.Forms.Button btnUpdateTransCancel;
+        private System.Windows.Forms.Button btnDeleteTransCancel;
     }
 }

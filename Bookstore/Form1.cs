@@ -53,7 +53,7 @@ namespace Bookstore
                     //Console.WriteLine(accessID);
                     if(Globals.BookStore.findEmployee(accessID))
                     {
-                        MessageBox.Show("Employee ID has been found!", "You have been found!");
+                        // MessageBox.Show("Employee ID has been found!", "You have been found!");
                         this.Hide();
                         PinID PINForm = new PinID();
                         PINForm.Show();
@@ -61,7 +61,7 @@ namespace Bookstore
                     }
                     else
                     {
-                        MessageBox.Show("Failure...", "We didn't find you in our system...");
+                        MessageBox.Show("Please enter a valid Access ID.", "Invalid Access ID Detected");
                         tryCount++;
                     }
                 }
@@ -86,6 +86,7 @@ namespace Bookstore
 
         private void FormClose(object sender, FormClosedEventArgs e)
         {
+            Globals.BookStore.rewindFiles();
             Application.Exit();
         }
     }

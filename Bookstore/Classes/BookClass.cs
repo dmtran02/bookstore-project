@@ -18,7 +18,7 @@ namespace Bookstore.Classes
 
         public BookClass(string bookISBN, string bookTitle, string bookAuthor, string bookPrice, string bookOnHand, string bookTransDate)
         {
-            this.bookAuthor = bookISBN;
+            this.bookISBN = bookISBN;
             this.bookTitle = bookTitle;
             this.bookAuthor = bookAuthor;
             this.bookPrice = bookPrice;
@@ -33,7 +33,7 @@ namespace Bookstore.Classes
 
         public void displayBookRecord(string nextRecord)
         {
-
+            Console.WriteLine(nextRecord);
         }
 
         public bool bookMatch(string ISBN, string nextRecord)
@@ -41,9 +41,8 @@ namespace Bookstore.Classes
             string[] lines = System.IO.File.ReadAllLines("currentBookFile.txt");
             for(int i = 0; i < lines.Length; i++)
             {
-                if (lines[i] == nextRecord)
+                if (lines[i].Contains(ISBN))
                 {
-                    Console.WriteLine(lines[i]);
                     return true;
                 }
             }
