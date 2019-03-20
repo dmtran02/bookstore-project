@@ -12,13 +12,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Bookstore.Classes
 {
     public class UpdatedFileClass
     {
-        private string updatedFilePath;
-        private System.IO.StreamWriter updatedFileSW;  // Reference variable of type SW
+        private string updatedFilePath = "updatedBookFile.txt";
+        private StreamWriter updatedFileSW;  // Reference variable of type SW
         private int recordWrittenCount;
 
         // Constructor with file path input
@@ -30,10 +31,11 @@ namespace Bookstore.Classes
             updatedFilePath = filePath;
             try
             {
-                updatedFileSW = new System.IO.StreamWriter(updatedFilePath);
+                updatedFileSW = new StreamWriter(updatedFilePath);
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex);
                 MessageBox.Show("Cannot open file" + updatedFilePath + "Terminate Program.",
                                 "Input File Connection Error.",
                                 MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -48,10 +50,18 @@ namespace Bookstore.Classes
         {
             try
             {
+                /*
+                using (StreamWriter sw = new StreamWriter("updatedBookFIle.txt"))
+                {
+                    sw.WriteLine(record);
+                }
+                */
                 updatedFileSW.WriteLine(record);
+                
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex);
                 MessageBox.Show("IO error in file write. Terminate program.",
                                 "File Write Error",
                                     MessageBoxButtons.OK, MessageBoxIcon.Stop);

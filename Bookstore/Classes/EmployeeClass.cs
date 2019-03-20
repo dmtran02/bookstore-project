@@ -80,7 +80,7 @@ namespace Bookstore.Classes
             {
                 hiddenAccessID = Convert.ToInt32(employeeString[0]);
                 accessID = hiddenAccessID;
-                Console.WriteLine("AccessID: " + thisEmployee.accessID);
+                //Console.WriteLine("AccessID: " + thisEmployee.accessID);
             }
             catch
             {

@@ -4,6 +4,11 @@
 //     CIS 3309
 
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Bookstore.Classes
 {
@@ -33,7 +38,7 @@ namespace Bookstore.Classes
 
         public void displayBookRecord(string nextRecord)
         {
-            Console.WriteLine(nextRecord);
+            MessageBox.Show(nextRecord, "Book");
         }
 
         public bool bookMatch(string ISBN, string nextRecord)
@@ -56,7 +61,7 @@ namespace Bookstore.Classes
             {
                 if (lines[i].Contains(ISBN))
                 {
-                    Console.WriteLine(lines[i]);
+                    //Console.WriteLine(lines[i]);
                     return true;
                 }
             }
@@ -80,7 +85,7 @@ namespace Bookstore.Classes
             {
                 if (lines[i].Contains(ISBN))
                 {
-                    Console.WriteLine(lines[i]);
+                    //Console.WriteLine(lines[i]);
                     holder = lines[i];
                 }
             }

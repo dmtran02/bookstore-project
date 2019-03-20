@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Bookstore
 {
@@ -271,23 +272,143 @@ namespace Bookstore
             }
             else
             {
+                string concatRecord = "";
+                concatRecord += txtBookISBN.Text + " * " + txtBookTitle.Text + " * " + txtBookAuthor.Text + " * "
+                    + txtBookPrice.Text + " * " + txtOnHand.Text + " * " + txtTransDate.Text;
+                Boolean isDuplicate = false;
+                Globals.BookStore.findAndSaveBook(txtBookISBN.Text, out isDuplicate);
+                if (found)
+                {
+                    MessageBox.Show("isDuplicate = true");
+                    Globals.BookStore.rewindFiles();
+                }
+                else
+                {
+                    Console.WriteLine("Else statement executed...");
+                    if (Globals.BookStore.checkForDuplicateRecord(txtBookISBN.Text))
+                    {
+                        Console.WriteLine("Duplicate Record detected...");
+                    }
+                    //Globals.BookStore.writeOneRecord(concatRecord);
+                    try
+                    {
+                        Console.WriteLine("Try statement executed...");
+                        if (!File.Exists("updatedBookFile.txt"))
+                        {
+                            File.Create("updatedBookFile.txt").Dispose();
+
+                            using (StreamWriter sw = File.AppendText("updatedBookFile.txt"))
+                            {
+                                sw.WriteLine(concatRecord);
+                                sw.Dispose();
+                                sw.Close();
+                            }
+                        }
+                        else
+                        {
+                            using (StreamWriter sw = File.AppendText("updatedBookFile.txt"))
+                            {
+                                sw.WriteLine(concatRecord);
+                                sw.Dispose();
+                                sw.Close();
+                            }
+                        }
+                        /*
+                        StreamWriter sw = new StreamWriter("updatedBookFile.txt");
+                        sw.Write(concatRecord);
+                        sw.Flush();
+                        sw.Close();
+                        */
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("Exception: " + ex);
+                    }
+                }
                 MessageBox.Show("The new book has been added successfully!", "New Book Added!");
             }
         }
 
         private void btnAddTransCancel_Click(object sender, EventArgs e)
         {
+            lblBookISBN.Visible = false;
+            lblBookTitle.Visible = false;
+            lblBookAuthor.Visible = false;
+            lblBookPrice.Visible = false;
+            lblOnHand.Visible = false;
+            lblTransDate.Visible = false;
 
+            txtBookISBN.Visible = false;
+            txtBookISBN.Text = "";
+            txtBookTitle.Visible = false;
+            txtBookTitle.Text = "";
+            txtBookAuthor.Visible = false;
+            txtBookAuthor.Text = "";
+            txtBookPrice.Visible = false;
+            txtBookPrice.Text = "";
+            txtOnHand.Visible = false;
+            txtOnHand.Text = "";
+            txtTransDate.Visible = false;
+            txtTransDate.Text = "";
+
+            btnAddTransConfirm.Visible = false;
+            btnAddTransCancel.Visible = false;
         }
+
+        //Copyremainingrecords findsavebook and checkduplicate
 
         private void btnUpdateTransConfirm_Click(object sender, EventArgs e)
         {
-
+            string concatRecord = "";
+            concatRecord += txtBookISBN.Text + " * " + txtBookTitle.Text + " * " + txtBookAuthor.Text + " * "
+                + txtBookPrice.Text + " * " + txtOnHand.Text + " * " + txtTransDate.Text;
+            Boolean found = false;
+            Globals.BookStore.findAndSaveBook(txtBookISBN.Text, out found);
+            if (found)
+            {
+                MessageBox.Show("found = true");
+                Globals.BookStore.rewindFiles();
+            }
+            else
+            {
+                Console.WriteLine("Else statement executed...");
+                if (Globals.BookStore.checkForDuplicateRecord(txtBookISBN.Text))
+                {
+                    Console.WriteLine("Duplicate Record detected...");
+                }
+                //Globals.BookStore.writeOneRecord(concatRecord);
+                else
+                {
+                    Globals.BookStore.writeOneRecord(concatRecord);
+                }
+            }
+            Globals.BookStore.rewindFiles();
         }
 
         private void btnUpdateTransCancel_Click(object sender, EventArgs e)
         {
+            lblBookISBN.Visible = false;
+            lblBookTitle.Visible = false;
+            lblBookAuthor.Visible = false;
+            lblBookPrice.Visible = false;
+            lblOnHand.Visible = false;
+            lblTransDate.Visible = false;
 
+            txtBookISBN.Visible = false;
+            txtBookISBN.Text = "";
+            txtBookTitle.Visible = false;
+            txtBookTitle.Text = "";
+            txtBookAuthor.Visible = false;
+            txtBookAuthor.Text = "";
+            txtBookPrice.Visible = false;
+            txtBookPrice.Text = "";
+            txtOnHand.Visible = false;
+            txtOnHand.Text = "";
+            txtTransDate.Visible = false;
+            txtTransDate.Text = "";
+
+            btnUpdateTransConfirm.Visible = false;
+            btnUpdateTransCancel.Visible = false;
         }
 
         private void btnDeleteTransConfirm_Click(object sender, EventArgs e)
@@ -297,7 +418,28 @@ namespace Bookstore
 
         private void btnDeleteTransCancel_Click(object sender, EventArgs e)
         {
+            lblBookISBN.Visible = false;
+            lblBookTitle.Visible = false;
+            lblBookAuthor.Visible = false;
+            lblBookPrice.Visible = false;
+            lblOnHand.Visible = false;
+            lblTransDate.Visible = false;
 
+            txtBookISBN.Visible = false;
+            txtBookISBN.Text = "";
+            txtBookTitle.Visible = false;
+            txtBookTitle.Text = "";
+            txtBookAuthor.Visible = false;
+            txtBookAuthor.Text = "";
+            txtBookPrice.Visible = false;
+            txtBookPrice.Text = "";
+            txtOnHand.Visible = false;
+            txtOnHand.Text = "";
+            txtTransDate.Visible = false;
+            txtTransDate.Text = "";
+
+            btnDeleteTransConfirm.Visible = false;
+            btnDeleteTransCancel.Visible = false;
         }
     }
 }
